@@ -14,14 +14,14 @@ public class LexerNumberTest extends BaseLexerTest {
     void testInteger() throws IOException, LexerException {
         List<Token> tokens = lexLineOf("123");
         assertEquals(1, tokens.size());
-        assertEquals(TokenType.NUMBER, tokens.getFirst().type);
-        assertEquals("123", tokens.getFirst().lexeme);
+        assertEquals(TokenType.NUMBER, tokens.getFirst().type());
+        assertEquals("123", tokens.getFirst().lexeme());
     }
 
     @Test
     void testFloat() throws IOException, LexerException {
         List<Token> tokens = lexLineOf("3.14");
-        assertEquals("3.14", tokens.getFirst().lexeme);
+        assertEquals("3.14", tokens.getFirst().lexeme());
     }
 
     @Test

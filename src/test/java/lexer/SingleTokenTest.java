@@ -20,6 +20,6 @@ public class SingleTokenTest extends BaseLexerTest {
             "), RPAREN"
     })
     void testSingleOperator(String input, TokenType expected) throws IOException, LexerException {
-        assertEquals(expected, lexLineOf(input).getFirst().type);
+        assertEquals(expected, lexLineOf(input).getFirst().type());
     }
 }

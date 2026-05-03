@@ -10,7 +10,7 @@ void main() {
         List<Token> tokens;
         while ((tokens = lexer.lexLine()) != null) {
             for (Token token : tokens) {
-                IO.print(token.lexeme);
+                IO.print(token.lexeme());
             }
             IO.println();
         }

@@ -13,7 +13,7 @@ public class LineNumberTest extends BaseLexerTest {
         try (Lexer lexer = lexerOf("\n+")) {
             lexer.lexLine(); // blank line
             List<Token> tokens = lexer.lexLine();
-            assertEquals(2, tokens.getFirst().line);
+            assertEquals(2, tokens.getFirst().line());
         }
     }
 }
