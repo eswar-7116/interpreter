@@ -54,9 +54,13 @@ public class Lexer implements AutoCloseable {
                         if (i < line.length() && line.charAt(i) == '.') {
                             sb.append('.');
                             ++i;
+                            int fracStart = i;
                             while (i < line.length() && Character.isDigit(line.charAt(i))) {
                                 sb.append(line.charAt(i));
                                 ++i;
+                            }
+                            if (i == fracStart) {
+                                throw new LexerException("Unsupported character", lineNumber, fracStart);
                             }
                         }
                         --i;
