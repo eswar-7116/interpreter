@@ -40,6 +40,7 @@ public class Lexer implements AutoCloseable {
                 case '%' -> tokens.add(new Token(TokenType.PERCENT, "%", lineNumber, i + 1));
                 case '(' -> tokens.add(new Token(TokenType.LPAREN, "(", lineNumber, i + 1));
                 case ')' -> tokens.add(new Token(TokenType.RPAREN, ")", lineNumber, i + 1));
+                case '=' -> tokens.add(new Token(TokenType.EQUAL, "=", lineNumber, i + 1));
                 case '#' -> {
                     break loop;
                 }
@@ -66,6 +67,16 @@ public class Lexer implements AutoCloseable {
                         --i;
 
                         tokens.add(new Token(TokenType.NUMBER, sb.toString(), lineNumber, start + 1));
+                    } else if (Character.isLetter(c)) {
+                        int start = i;
+                        StringBuilder sb = new StringBuilder();
+
+                        while (i < line.length() && Character.isLetterOrDigit(line.charAt(i))) {
+                            sb.append(line.charAt(i));
+                            ++i;
+                        }
+                        --i;
+                        tokens.add(new Token(TokenType.IDENTIFIER, sb.toString(), lineNumber, start + 1));
                     } else if (!Character.isWhitespace(c)) {
                         throw new LexerException(String.format("Unsupported character '%c'", c), lineNumber, i + 1);
                     }

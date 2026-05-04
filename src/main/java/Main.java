@@ -6,7 +6,7 @@ import parser.Parser;
 import token.Token;
 
 void main() {
-    Interpreter interpreter = new Interpreter();
+    Interpreter interpreter = new Interpreter(new HashMap<>());
     try (
             FileReader fr = new FileReader("src/main/resources/testcode/code.mylang")
     ) {

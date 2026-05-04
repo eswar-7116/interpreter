@@ -9,5 +9,7 @@ public enum TokenType {
     PERCENT,
     LPAREN,
     RPAREN,
-    HASH
+    HASH,
+    IDENTIFIER,
+    EQUAL,
 }
