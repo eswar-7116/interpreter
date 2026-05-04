@@ -1,6 +1,10 @@
 package parser;
 
 import expr.*;
+import stmt.ExitStmt;
+import stmt.ExprStmt;
+import stmt.PrintStmt;
+import stmt.Stmt;
 import token.Token;
 import token.TokenType;
 
@@ -15,36 +19,22 @@ public class Parser {
         this.idx = 0;
     }
 
-    public Expr parse() {
+    public Stmt parse() {
         if (tokens == null || tokens.isEmpty()) return null;
-        return expression();
+        return statement();
     }
 
-    private boolean isEnd() {
-        return idx >= tokens.size();
-    }
-
-    private Token peek() {
-        return tokens.get(idx);
-    }
-
-    private Token previous() {
-        return tokens.get(idx - 1);
-    }
-
-    private boolean check(TokenType type) {
-        if (isEnd()) return false;
-        return peek().type() == type;
-    }
-
-    private boolean match(TokenType... types) {
-        for (TokenType type : types) {
-            if (check(type)) {
-                idx++;
-                return true;
-            }
+    private Stmt statement() {
+        if (match(TokenType.PRINT)) {
+            return new PrintStmt(expression());
         }
-        return false;
+
+        if (match(TokenType.EXIT)) {
+            Expr code = isEnd() ? null : expression();
+            return new ExitStmt(code);
+        }
+
+        return new ExprStmt(expression());
     }
 
     public Expr expression() {
@@ -131,5 +121,32 @@ public class Parser {
             }
             default -> throw new ParserException("Unexpected token '" + token.lexeme() + "' at line " + token.line() + ", column " + token.column());
         };
+    }
+
+    private boolean isEnd() {
+        return idx >= tokens.size();
+    }
+
+    private Token peek() {
+        return tokens.get(idx);
+    }
+
+    private Token previous() {
+        return tokens.get(idx - 1);
+    }
+
+    private boolean check(TokenType type) {
+        if (isEnd()) return false;
+        return peek().type() == type;
+    }
+
+    private boolean match(TokenType... types) {
+        for (TokenType type : types) {
+            if (check(type)) {
+                idx++;
+                return true;
+            }
+        }
+        return false;
     }
 }

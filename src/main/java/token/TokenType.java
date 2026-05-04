@@ -12,4 +12,6 @@ public enum TokenType {
     HASH,
     IDENTIFIER,
     EQUAL,
+    PRINT,
+    EXIT,
 }

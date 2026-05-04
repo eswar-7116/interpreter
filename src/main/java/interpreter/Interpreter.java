@@ -2,6 +2,10 @@ package interpreter;
 
 import expr.*;
 import parser.ParserException;
+import stmt.ExitStmt;
+import stmt.ExprStmt;
+import stmt.PrintStmt;
+import stmt.Stmt;
 import token.Token;
 
 import java.util.Map;
@@ -11,6 +15,27 @@ public class Interpreter {
 
     public Interpreter(Map<String, Double> symbolTable) {
         this.symbolTable = symbolTable;
+    }
+
+    public void execute(Stmt stmt) {
+        switch (stmt) {
+            case PrintStmt(Expr expr) -> {
+                double value = evaluate(expr);
+                System.out.println(value);
+            }
+
+            case ExitStmt(Expr codeExpr) -> {
+                int code = 0;
+                if (codeExpr != null) {
+                    code = (int) evaluate(codeExpr);
+                }
+                System.exit(code);
+            }
+
+            case ExprStmt(Expr expr) -> evaluate(expr);
+
+            default -> throw new RuntimeException("Unknown statement: " + stmt);
+        }
     }
 
     public double evaluate(Expr expr) {

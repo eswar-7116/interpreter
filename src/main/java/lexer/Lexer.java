@@ -76,7 +76,15 @@ public class Lexer implements AutoCloseable {
                             ++i;
                         }
                         --i;
-                        tokens.add(new Token(TokenType.IDENTIFIER, sb.toString(), lineNumber, start + 1));
+
+                        String word = sb.toString();
+                        TokenType type = switch (word) {
+                            case "print" -> TokenType.PRINT;
+                            case "exit"  -> TokenType.EXIT;
+                            default      -> TokenType.IDENTIFIER;
+                        };
+
+                        tokens.add(new Token(type, word, lineNumber, start + 1));
                     } else if (!Character.isWhitespace(c)) {
                         throw new LexerException(String.format("Unsupported character '%c'", c), lineNumber, i + 1);
                     }

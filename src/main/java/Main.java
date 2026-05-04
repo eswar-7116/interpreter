@@ -3,6 +3,7 @@ import interpreter.Interpreter;
 import lexer.Lexer;
 import lexer.LexerException;
 import parser.Parser;
+import stmt.Stmt;
 import token.Token;
 
 void main() {
@@ -14,8 +15,9 @@ void main() {
         List<Token> tokens;
         while ((tokens = lexer.lexLine()) != null) {
             Parser parser = new Parser(tokens);
-            Expr ast = parser.parse();
-            IO.println(interpreter.evaluate(ast));
+            Stmt stmt = parser.parse();
+            if (stmt != null)
+                interpreter.execute(stmt);
         }
     } catch (LexerException e) {
         System.err.println("Lex error: " + e.getMessage());
