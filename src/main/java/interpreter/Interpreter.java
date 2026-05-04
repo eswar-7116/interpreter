@@ -1,6 +1,7 @@
 package interpreter;
 
 import expr.*;
+import optimizer.Optimizer;
 import parser.ParserException;
 import stmt.ExitStmt;
 import stmt.ExprStmt;
@@ -12,9 +13,11 @@ import java.util.Map;
 
 public class Interpreter {
     public Map<String, Double> symbolTable;
+    private final Optimizer optimizer;
 
     public Interpreter(Map<String, Double> symbolTable) {
         this.symbolTable = symbolTable;
+        optimizer = new Optimizer();
     }
 
     public void execute(Stmt stmt) {
@@ -39,6 +42,7 @@ public class Interpreter {
     }
 
     public double evaluate(Expr expr) {
+        expr = optimizer.optimize(expr);
         return switch (expr) {
             case null -> -1;
             case LiteralExpr(double value) -> value;
