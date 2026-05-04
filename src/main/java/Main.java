@@ -1,10 +1,12 @@
 import expr.Expr;
+import interpreter.Interpreter;
 import lexer.Lexer;
 import lexer.LexerException;
 import parser.Parser;
 import token.Token;
 
 void main() {
+    Interpreter interpreter = new Interpreter();
     try (
             FileReader fr = new FileReader("src/main/resources/testcode/code.mylang")
     ) {
@@ -13,7 +15,7 @@ void main() {
         while ((tokens = lexer.lexLine()) != null) {
             Parser parser = new Parser(tokens);
             Expr ast = parser.parse();
-            IO.println(ast);
+            IO.println(interpreter.evaluate(ast));
         }
     } catch (LexerException e) {
         System.err.println("Lex error: " + e.getMessage());
