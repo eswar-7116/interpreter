@@ -45,18 +45,31 @@ public class Parser {
     }
 
     public Expr term() {
-        Expr left = primary();
+        Expr left = unary();
 
         while (idx < tokens.size() && (
                 tokens.get(idx).type() == TokenType.ASTERISK || tokens.get(idx).type() == TokenType.FSLASH || tokens.get(idx).type() == TokenType.PERCENT
         )) {
             Token operator = tokens.get(idx++);
-            Expr right = primary();
+            Expr right = unary();
 
             left = new BinaryExpr(left, operator, right);
         }
 
         return left;
+    }
+
+    public Expr unary() {
+        if (idx < tokens.size() && (
+                tokens.get(idx).type() == TokenType.MINUS || tokens.get(idx).type() == TokenType.PLUS
+        )) {
+            Token operator = tokens.get(idx++);
+            Expr right = unary();
+
+            return new BinaryExpr(new LiteralExpr(0), operator, right);
+        }
+
+        return primary();
     }
 
     public Expr primary() {
