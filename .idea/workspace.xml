@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3442c790-3f73-4b98-921f-a9fd7ef44267" name="Changes" comment="tokenize strings">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interpreter/Interpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/optimizer/Optimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/optimizer/Optimizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repl/REPL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repl/REPL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/token/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/token/TokenType.java" afterDir="false" />
-    </list>
+    <list default="true" id="3442c790-3f73-4b98-921f-a9fd7ef44267" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -225,7 +216,7 @@
       <workItem from="1777915579398" duration="4121000" />
       <workItem from="1777919759353" duration="26000" />
       <workItem from="1777958913256" duration="2647000" />
-      <workItem from="1777963817859" duration="2048000" />
+      <workItem from="1777963817859" duration="2097000" />
     </task>
     <task id="LOCAL-00001" summary="Change Token to record">
       <option name="closed" value="true" />
@@ -315,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777919095657</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="optimize statements and constants and add del keyword">
+      <option name="closed" value="true" />
+      <created>1777965892212</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1777965892212</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,6 +353,7 @@
     <MESSAGE value="Add print and exit statements" />
     <MESSAGE value="implement REPL" />
     <MESSAGE value="feat: optimize expr before evaluation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: optimize expr before evaluation" />
+    <MESSAGE value="optimize statements and constants and add del keyword" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimize statements and constants and add del keyword" />
   </component>
 </project>

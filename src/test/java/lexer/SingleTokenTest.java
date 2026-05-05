@@ -17,7 +17,8 @@ public class SingleTokenTest extends BaseLexerTest {
             "/, FSLASH",
             "%, PERCENT",
             "(, LPAREN",
-            "), RPAREN"
+            "), RPAREN",
+            "=, EQUAL"
     })
     void testSingleOperator(String input, TokenType expected) throws IOException, LexerException {
         assertEquals(expected, lexLineOf(input).getFirst().type());
