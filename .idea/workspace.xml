@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3442c790-3f73-4b98-921f-a9fd7ef44267" name="Changes" comment="">
+    <list default="true" id="3442c790-3f73-4b98-921f-a9fd7ef44267" name="Changes" comment="tokenize strings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interpreter/Interpreter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optimizer/Optimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/optimizer/Optimizer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repl/REPL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repl/REPL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/token/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/token/TokenType.java" afterDir="false" />
@@ -223,6 +225,7 @@
       <workItem from="1777915579398" duration="4121000" />
       <workItem from="1777919759353" duration="26000" />
       <workItem from="1777958913256" duration="2647000" />
+      <workItem from="1777963817859" duration="2048000" />
     </task>
     <task id="LOCAL-00001" summary="Change Token to record">
       <option name="closed" value="true" />

@@ -16,4 +16,5 @@ public enum TokenType {
     EXIT,
     LET,
     CONST,
+    DEL,
 }

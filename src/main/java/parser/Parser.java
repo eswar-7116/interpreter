@@ -22,6 +22,10 @@ public class Parser {
     }
 
     private Stmt statement() {
+        if (match(TokenType.DEL)) {
+            return delStatement();
+        }
+
         if (match(TokenType.PRINT)) {
             return new PrintStmt(expression());
         }
@@ -40,6 +44,11 @@ public class Parser {
         }
 
         return new ExprStmt(expression());
+    }
+
+    private Stmt delStatement() {
+        Token name = consume(TokenType.IDENTIFIER, "Expected variable name after 'del'");
+        return new DelStmt(name);
     }
 
     private Stmt letStatement() {

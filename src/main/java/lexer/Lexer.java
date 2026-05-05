@@ -67,11 +67,11 @@ public class Lexer implements AutoCloseable {
                         --i;
 
                         tokens.add(new Token(TokenType.NUMBER, sb.toString(), lineNumber, start + 1));
-                    } else if (Character.isLetter(c)) {
+                    } else if (Character.isLetter(c) || c == '_') {
                         int start = i;
                         StringBuilder sb = new StringBuilder();
 
-                        while (i < line.length() && Character.isLetterOrDigit(line.charAt(i))) {
+                        while (i < line.length() && (Character.isLetterOrDigit(line.charAt(i)) || line.charAt(i) == '_')) {
                             sb.append(line.charAt(i));
                             ++i;
                         }
@@ -83,6 +83,7 @@ public class Lexer implements AutoCloseable {
                             case "exit"  -> TokenType.EXIT;
                             case "let"  -> TokenType.LET;
                             case "const"  -> TokenType.CONST;
+                            case "del"  -> TokenType.DEL;
                             default      -> TokenType.IDENTIFIER;
                         };
 

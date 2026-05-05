@@ -1,19 +1,16 @@
 package interpreter;
 
 import expr.*;
-import optimizer.Optimizer;
 import stmt.*;
 import token.Token;
 
 import java.util.Map;
 
 public class Interpreter {
-    public Map<String, Variable> symbolTable;
-    private final Optimizer optimizer;
+    public final Map<String, Variable> symbolTable;
 
     public Interpreter(Map<String, Variable> symbolTable) {
         this.symbolTable = symbolTable;
-        optimizer = new Optimizer();
     }
 
     public void execute(Stmt stmt) {
@@ -51,12 +48,18 @@ public class Interpreter {
                 symbolTable.put(name.lexeme(), new Variable(value, true));
             }
 
+            case DelStmt(Token name) -> {
+                if (!symbolTable.containsKey(name.lexeme())) {
+                    throw new RuntimeException("Undefined variable: " + name.lexeme());
+                }
+                symbolTable.remove(name.lexeme());
+            }
+
             default -> throw new InterpreterException("Unknown statement: " + stmt);
         }
     }
 
     public double evaluate(Expr expr) {
-        expr = optimizer.optimize(expr);
         return switch (expr) {
             case null -> -1;
             case LiteralExpr(double value) -> value;

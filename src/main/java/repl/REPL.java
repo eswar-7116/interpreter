@@ -3,6 +3,7 @@ package repl;
 import interpreter.Interpreter;
 import interpreter.Variable;
 import lexer.Lexer;
+import optimizer.Optimizer;
 import parser.Parser;
 import stmt.Stmt;
 import token.Token;
@@ -17,6 +18,7 @@ public class REPL {
         Lexer lexer = new Lexer(new InputStreamReader(System.in));
         Map<String, Variable> symbolTable = new HashMap<>();
         Interpreter interpreter = new Interpreter(symbolTable);
+        Optimizer optimizer = new Optimizer(new HashMap<>());
 
         while (true) {
             System.out.print(">>> ");
@@ -29,9 +31,10 @@ public class REPL {
             try {
                 Parser parser = new Parser(tokens);
                 Stmt stmt = parser.parse();
-
-                interpreter.execute(stmt);
-
+                if (stmt != null) {
+                    optimizer.optimize(stmt);
+                    interpreter.execute(stmt);
+                }
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
