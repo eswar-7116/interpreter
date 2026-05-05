@@ -21,7 +21,7 @@ public class REPL {
         Optimizer optimizer = new Optimizer(new HashMap<>());
 
         while (true) {
-            System.out.print(">>> ");
+            IO.print(">>> ");
 
             List<Token> tokens = lexer.lexLine();
             if (tokens == null) break; // EOF
@@ -36,7 +36,7 @@ public class REPL {
                     interpreter.execute(stmt);
                 }
             } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
+                IO.println("Error: " + e.getMessage());
             }
         }
     }

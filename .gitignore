@@ -42,5 +42,6 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-# Test code file
+# Test and benchmark code file
 **/src/main/resources/**/testcode/
+**/src/main/resources/**/benchmark/
