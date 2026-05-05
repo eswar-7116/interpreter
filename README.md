@@ -222,16 +222,17 @@ The interpreter is a tree-walking evaluator that uses Java's pattern matching on
 
 ### Packages
 
-| Package       | What's in it                                                                                |
-| ------------- | ------------------------------------------------------------------------------------------- |
-| `token`       | `Token` record and `TokenType` enum                                                         |
-| `lexer`       | `Lexer` - tokenizer with line/column tracking                                               |
-| `expr`        | Expression AST nodes: `LiteralExpr`, `BinaryExpr`, `VariableExpr`, `AssignExpr`             |
-| `stmt`        | Statement AST nodes: `LetStmt`, `ConstStmt`, `DelStmt`, `PrintStmt`, `ExitStmt`, `ExprStmt` |
-| `parser`      | Recursive descent parser with precedence climbing                                           |
-| `optimizer`   | Constant folding, propagation, and algebraic simplifications                                |
-| `interpreter` | Tree-walking evaluator using pattern matching dispatch                                      |
-| `repl`        | Interactive read-eval-print loop                                                            |
+| Package            | What's in it                                                                                |
+| ------------------ | ------------------------------------------------------------------------------------------- |
+| `token`            | `Token` record and `TokenType` enum                                                         |
+| `lexer`            | `Lexer` - tokenizer with line/column tracking                                               |
+| `expr`             | Expression AST nodes: `LiteralExpr`, `BinaryExpr`, `VariableExpr`, `AssignExpr`             |
+| `stmt`             | Statement AST nodes: `LetStmt`, `ConstStmt`, `DelStmt`, `PrintStmt`, `ExitStmt`, `ExprStmt` |
+| `parser`           | Recursive descent parser with precedence climbing                                           |
+| `optimizer`        | Constant folding, propagation, and algebraic simplifications                                |
+| `interpreter`      | Tree-walking evaluator using pattern matching dispatch                                      |
+| `repl`             | Interactive read-eval-print loop                                                            |
+| `benchmark`        | Benchmarking and metrics related code                                                       |
 
 ## Performance Metrics
 
@@ -260,8 +261,7 @@ src/
 │   ├── optimizer/             # Optimizer
 │   ├── interpreter/           # Interpreter, Variable, InterpreterException
 │   └── repl/                  # REPL
-├── main/resources/
-│   └── testcode/code.flux     # Sample program
+│   └── benchmark/             # Benchmarking and metrics related code
 └── test/java/
     ├── lexer/                 # Lexer tests
     ├── parser/                # Parser tests
