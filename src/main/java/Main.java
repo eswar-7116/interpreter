@@ -6,11 +6,21 @@ import parser.Parser;
 import stmt.Stmt;
 import token.Token;
 
-void main() {
+void main(String[] args) {
+    String path;
+    if (args.length >= 1) {
+        path = args[0];
+    } else {
+        System.err.println("Usage: flux <source-file>");
+        System.err.println("Example: flux program.flux");
+        System.exit(1);
+        return;
+    }
+
     Interpreter interpreter = new Interpreter(new HashMap<>());
     Optimizer optimizer = new Optimizer(new HashMap<>());
     try (
-            FileReader fr = new FileReader("src/main/resources/testcode/code.mylang")
+            FileReader fr = new FileReader(path)
     ) {
         Lexer lexer = new Lexer(fr);
         List<Token> tokens;
