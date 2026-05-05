@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3442c790-3f73-4b98-921f-a9fd7ef44267" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repl/REPL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repl/REPL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/interpreter/EvaluateExprTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/interpreter/EvaluateExprTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="3442c790-3f73-4b98-921f-a9fd7ef44267" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,46 +58,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Gradle.Interpreter [:Main.main()].executor": "Run",
-    "Gradle.Interpreter [:benchmark.BenchmarkGenerator.main()].executor": "Run",
-    "Gradle.Interpreter [:benchmark.BenchmarkRunner.main()].executor": "Run",
-    "Gradle.Interpreter [:repl.REPL.main()].executor": "Run",
-    "Gradle.Interpreter [build].executor": "Run",
-    "Gradle.Interpreter [testClasses].executor": "Run",
-    "Gradle.LexerTest.executor": "Run",
-    "Gradle.LexerTest.testSingleOperator.executor": "Run",
-    "Gradle.Tests in 'lexer'.executor": "Run",
-    "Gradle.Upgrade Gradle wrapper.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "git.auto.fetch.suggestion.counter": "1",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Gradle.Interpreter [:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Interpreter [:benchmark.BenchmarkGenerator.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Interpreter [:benchmark.BenchmarkRunner.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Interpreter [:repl.REPL.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Interpreter [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Interpreter [testClasses].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LexerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LexerTest.testSingleOperator.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Tests in 'lexer'.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git.auto.fetch.suggestion.counter&quot;: &quot;1&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/benchmark" />
@@ -208,7 +202,7 @@
       <workItem from="1777919759353" duration="26000" />
       <workItem from="1777958913256" duration="2647000" />
       <workItem from="1777963817859" duration="2097000" />
-      <workItem from="1777971193757" duration="677000" />
+      <workItem from="1777971193757" duration="781000" />
     </task>
     <task id="LOCAL-00001" summary="Change Token to record">
       <option name="closed" value="true" />
@@ -306,7 +300,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777965892212</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="replace System.out with IO class and add benchmark &amp; metrics">
+      <option name="closed" value="true" />
+      <created>1777971952830</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1777971952830</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,6 +348,7 @@
     <MESSAGE value="implement REPL" />
     <MESSAGE value="feat: optimize expr before evaluation" />
     <MESSAGE value="optimize statements and constants and add del keyword" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimize statements and constants and add del keyword" />
+    <MESSAGE value="replace System.out with IO class and add benchmark &amp; metrics" />
+    <option name="LAST_COMMIT_MESSAGE" value="replace System.out with IO class and add benchmark &amp; metrics" />
   </component>
 </project>
