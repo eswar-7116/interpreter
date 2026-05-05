@@ -14,4 +14,6 @@ public enum TokenType {
     EQUAL,
     PRINT,
     EXIT,
+    LET,
+    CONST,
 }

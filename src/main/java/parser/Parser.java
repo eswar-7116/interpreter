@@ -1,10 +1,7 @@
 package parser;
 
 import expr.*;
-import stmt.ExitStmt;
-import stmt.ExprStmt;
-import stmt.PrintStmt;
-import stmt.Stmt;
+import stmt.*;
 import token.Token;
 import token.TokenType;
 
@@ -34,10 +31,38 @@ public class Parser {
             return new ExitStmt(code);
         }
 
+        if (match(TokenType.LET)) {
+            return letStatement();
+        }
+
+        if (match(TokenType.CONST)) {
+            return constStatement();
+        }
+
         return new ExprStmt(expression());
     }
 
-    public Expr expression() {
+    private Stmt letStatement() {
+        Token name = consume(TokenType.IDENTIFIER, "Expected variable name");
+
+        consume(TokenType.EQUAL, "Expected '=' after variable name");
+
+        Expr value = expression();
+
+        return new LetStmt(name, value);
+    }
+
+    private Stmt constStatement() {
+        Token name = consume(TokenType.IDENTIFIER, "Expected variable name");
+
+        consume(TokenType.EQUAL, "Expected '=' after variable name");
+
+        Expr value = expression();
+
+        return new ConstStmt(name, value);
+    }
+
+    private Expr expression() {
         return assignment();
     }
 
@@ -72,7 +97,7 @@ public class Parser {
         return left;
     }
 
-    public Expr term() {
+    private Expr term() {
         Expr left = unary();
 
         while (match(TokenType.ASTERISK, TokenType.FSLASH, TokenType.PERCENT)) {
@@ -85,7 +110,7 @@ public class Parser {
         return left;
     }
 
-    public Expr unary() {
+    private Expr unary() {
         if (match(TokenType.MINUS, TokenType.PLUS)) {
             Token operator = previous();
             Expr right = unary();
@@ -96,7 +121,7 @@ public class Parser {
         return primary();
     }
 
-    public Expr primary() {
+    private Expr primary() {
         if (isEnd()) {
             throw new ParserException("Unexpected end of expression");
         }
@@ -148,5 +173,16 @@ public class Parser {
             }
         }
         return false;
+    }
+
+    private Token consume(TokenType type, String message) {
+        if (check(type)) {
+            return tokens.get(idx++);
+        }
+
+        Token token = isEnd() ? tokens.get(idx - 1) : tokens.get(idx);
+        throw new ParserException(
+                message + " at line " + token.line() + ", column " + token.column()
+        );
     }
 }

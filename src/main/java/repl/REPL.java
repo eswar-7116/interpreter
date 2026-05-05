@@ -1,6 +1,7 @@
 package repl;
 
 import interpreter.Interpreter;
+import interpreter.Variable;
 import lexer.Lexer;
 import parser.Parser;
 import stmt.Stmt;
@@ -14,7 +15,7 @@ import java.util.Map;
 public class REPL {
     static void main() throws Exception {
         Lexer lexer = new Lexer(new InputStreamReader(System.in));
-        Map<String, Double> symbolTable = new HashMap<>();
+        Map<String, Variable> symbolTable = new HashMap<>();
         Interpreter interpreter = new Interpreter(symbolTable);
 
         while (true) {

@@ -2,20 +2,16 @@ package interpreter;
 
 import expr.*;
 import optimizer.Optimizer;
-import parser.ParserException;
-import stmt.ExitStmt;
-import stmt.ExprStmt;
-import stmt.PrintStmt;
-import stmt.Stmt;
+import stmt.*;
 import token.Token;
 
 import java.util.Map;
 
 public class Interpreter {
-    public Map<String, Double> symbolTable;
+    public Map<String, Variable> symbolTable;
     private final Optimizer optimizer;
 
-    public Interpreter(Map<String, Double> symbolTable) {
+    public Interpreter(Map<String, Variable> symbolTable) {
         this.symbolTable = symbolTable;
         optimizer = new Optimizer();
     }
@@ -37,7 +33,25 @@ public class Interpreter {
 
             case ExprStmt(Expr expr) -> evaluate(expr);
 
-            default -> throw new RuntimeException("Unknown statement: " + stmt);
+            case LetStmt(Token name, Expr init) -> {
+                if (symbolTable.containsKey(name.lexeme())) {
+                    throw new InterpreterException(String.format("Cannot re-declare variable '%s' at line %d, column %d", name.lexeme(), name.line(), name.column()));
+                }
+
+                double value = evaluate(init);
+                symbolTable.put(name.lexeme(), new Variable(value, false));
+            }
+
+            case ConstStmt(Token name, Expr init) -> {
+                if (symbolTable.containsKey(name.lexeme())) {
+                    throw new InterpreterException(String.format("Cannot re-declare variable '%s' at line %d, column %d", name.lexeme(), name.line(), name.column()));
+                }
+
+                double value = evaluate(init);
+                symbolTable.put(name.lexeme(), new Variable(value, true));
+            }
+
+            default -> throw new InterpreterException("Unknown statement: " + stmt);
         }
     }
 
@@ -60,16 +74,26 @@ public class Interpreter {
             }
             case VariableExpr(Token name) -> {
                 if (!symbolTable.containsKey(name.lexeme())) {
-                    throw new RuntimeException("Undefined variable: " + name.lexeme());
+                    throw new InterpreterException("Undefined variable: " + name.lexeme());
                 }
-                yield symbolTable.get(name.lexeme());
+                yield symbolTable.get(name.lexeme()).value;
             }
             case AssignExpr(Token name, Expr value) -> {
+                if (!symbolTable.containsKey(name.lexeme())) {
+                    throw new InterpreterException("Undefined variable: " + name.lexeme());
+                }
+
+                Variable var = symbolTable.get(name.lexeme());
+                if (var.isConst) {
+                    throw new InterpreterException("Cannot reassign const variable: " + name.lexeme());
+                }
+
                 double evaluated = evaluate(value);
-                symbolTable.put(name.lexeme(), evaluated);
+                var.value = evaluated;
+
                 yield evaluated;
             }
-            default -> throw new ParserException("Invalid expr: "+expr);
+            default -> throw new InterpreterException("Invalid expr: " + expr);
         };
     }
 }

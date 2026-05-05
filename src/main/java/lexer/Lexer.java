@@ -81,6 +81,8 @@ public class Lexer implements AutoCloseable {
                         TokenType type = switch (word) {
                             case "print" -> TokenType.PRINT;
                             case "exit"  -> TokenType.EXIT;
+                            case "let"  -> TokenType.LET;
+                            case "const"  -> TokenType.CONST;
                             default      -> TokenType.IDENTIFIER;
                         };
 
